@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Churrasco</title>
+  <link rel="stylesheet" href="css/style.css">
+
+
+</head>
+
+<body>
+<!-- Cabeçalho -->
+<header class="header">
+  <div class="container">
+    <a href="index.html" class="logo">
+      <img src="img/barbrasa.png" alt="Barbrasa - Home">
+    </a>
+    <nav class="navbar">
+      <ul class="navbar-list">
+        <li class="navbar-item"><a href="index.html" class="navbar-link">Início</a></li>
+        <li class="navbar-item"><a href="cardapio.html" class="navbar-link">Cardápio</a></li>
+        <li class="navbar-item"><a href="calculadora.html" class="navbar-link active">Calculadora</a></li>
+        <li class="navbar-item"><a href="https://l1nk.dev/zCDq4" class="navbar-link">Contato</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<!-- Fim do Cabeçalho -->
+
+<!-- Seção da Calculadora -->
+<main>
+  <section class="section calculator text-center" id="calculator">
+    <div class="container">
+      <h2 class="headline-1 section-title">Calculadora de Churrasco</h2>
+      <p class="section-text">Calcule a quantidade ideal de carne e acompanhamentos para o seu evento.</p>
+
+      <form id="churrasco-calculator">
+        <div class="input-wrapper">
+          <label for="adultos" class="label-2">Número de Adultos</label>
+          <input type="number" id="adultos" placeholder="Ex: 10" class="input-field" required>
+        </div>
+
+        <div class="input-wrapper">
+          <label for="criancas" class="label-2">Número de Crianças</label>
+          <input type="number" id="criancas" placeholder="Ex: 5" class="input-field" required>
+        </div>
+
+        <button type="button" class="btn btn-primary" onclick="calcularChurrasco()">Calcular</button>
+
+        <div id="resultado" class="resultado"></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<script>
+  function calcularChurrasco() {
+    const adultos = document.getElementById('adultos').value;
+    const criancas = document.getElementById('criancas').value;
+
+    if (adultos && criancas) {
+      const carneAdultos = adultos * 400;
+      const carneCriancas = criancas * 200;
+      const totalCarne = carneAdultos + carneCriancas;
+
+      document.getElementById('resultado').innerHTML = `
+          <h3>Quantidade estimada:</h3>
+          <p><strong>${totalCarne / 1000} kg</strong> de carne no total.</p>
+        `;
+    } else {
+      alert('Por favor, preencha todos os campos.');
+    }
+  }
+</script>
+</body>
+
+</html>
